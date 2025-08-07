@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Jogo_da_Forca/Jogo_da_Forca.iml" filepath="$PROJECT_DIR$/Jogo_da_Forca/Jogo_da_Forca.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Jogo_da_Forca-Trabalho_redes.iml" filepath="$PROJECT_DIR$/.idea/Jogo_da_Forca-Trabalho_redes.iml" />
       <module fileurl="file://$PROJECT_DIR$/Testes/Testes.iml" filepath="$PROJECT_DIR$/Testes/Testes.iml" />
     </modules>
