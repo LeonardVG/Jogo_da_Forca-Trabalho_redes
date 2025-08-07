@@ -1,6 +1,11 @@
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
+/*
+* Existe apenas um dele para t odo o servidor
+*  Ele não fala diretamente com os clientes, mas sabe de tudo o que acontece
+*  Sua principal responsabilidade é manter um mapa de todas as salas existentes para que ninguém se perca
+*
+* */
 public class GerenciadorDeSalas {
     // Usamos ConcurrentHashMap por ser seguro para threads.
     private Map<String, Sala> salas = new ConcurrentHashMap<>();
