@@ -57,6 +57,20 @@ public class PlayerHandler implements Runnable {
         paraCliente.println(gson.toJson(resposta));
     }
 
+    public String getNickname() {
+        return this.nickname;
+    }
+
+    // E este método auxiliar para o comando HORAS
+    private String montarMensagemSimples(String texto) {
+        Mensagem msg = new Mensagem();
+        msg.type = "MENSAGEM_SIMPLES";
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("mensagem", texto);
+        msg.payload = payload;
+        return gson.toJson(msg);
+    }
+//metodo principal para rodar em paralelo======================================
     @Override
     public void run() {
         try {
@@ -120,12 +134,33 @@ public class PlayerHandler implements Runnable {
                             }
                             break;
 
-                        case "HORAS":
+                        case "INICIAR_JOGO":
+                            if (salaAtual != null) {
+                                salaAtual.iniciarJogo();
+                            } else {
+                                responder(false, "Você precisa estar em uma sala para iniciar um jogo.", null);
+                            }
+                            break;
+
+                        case "JOGAR_LETRA":
+                            if (salaAtual != null && payload != null && payload.get("letra") != null) {
+                                // Pega o primeiro caractere da string enviada
+                                String letraStr = (String) payload.get("letra");
+                                if (!letraStr.isEmpty()) {
+                                    char letra = letraStr.charAt(0);
+                                    salaAtual.processarJogada(this, letra);
+                                }
+                            } else {
+                                responder(false, "Comando inválido ou você não está em um jogo.", null);
+                            }
+                            break;
+
+                        case "HORAS": // Podemos manter como um comando de teste
                             if (salaAtual != null) {
                                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
                                 String hora = dtf.format(LocalDateTime.now());
                                 String msgBroadcast = "[SALA " + salaAtual.getNome() + "] " + this.nickname + " pediu as horas. São " + hora;
-                                salaAtual.broadcast(msgBroadcast);
+                                salaAtual.broadcast(montarMensagemSimples(msgBroadcast));
                             } else {
                                 responder(false, "ERRO: Você precisa estar em uma sala para usar este comando.", null);
                             }

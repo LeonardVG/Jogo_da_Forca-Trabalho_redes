@@ -83,6 +83,14 @@ public class Cliente {
                 case "SAIR":
                     // Sem payload necessário
                     break;
+                case "INICIAR_JOGO":
+                    // Não precisa de payload
+                    break;
+
+                case "JOGAR": // Vamos usar "JOGAR" como o comando do usuário
+                    msg.type = "JOGAR_LETRA"; // O tipo do protocolo
+                    payload.put("letra", partes[1]);
+                    break;
                 default:
                     return null; // Comando inválido
             }
