@@ -29,18 +29,41 @@ public class ReceptorDeMensagens implements Runnable {
                     if ("RESPOSTA_SERVIDOR".equals(tipoMsg)) {
                         System.out.println("Servidor: " + payload.get("mensagem"));
                     } else if ("ATUALIZACAO_JOGO".equals(tipoMsg)) {
-                        System.out.println("=== JOGO DA FORCA ===");
+                        System.out.println("\n======== JOGO DA FORCA ========");
+                        System.out.println("\n");
                         System.out.println("Palavra: " + payload.get("palavra"));
+                        System.out.println("\n");
                         System.out.println("Letras tentadas: " + payload.get("letrasTentadas"));
+                        System.out.println("\n");
                         System.out.println("Tentativas restantes: " + payload.get("tentativasRestantes"));
 
-                        System.out.println("--> É a vez de: " + payload.get("turnoDe"));
-                        System.out.println("=====================");
+                        System.out.println("\n--> É a vez de: " + payload.get("turnoDe"));
+                        System.out.println("===============================");
                     } else if ("FIM_DE_JOGO".equals(tipoMsg)) {
-                        System.out.println("### FIM DE JOGO ###");
+                        System.out.println("######## FIM DE JOGO ########");
                         System.out.println("Resultado: " + payload.get("resultado"));
                         System.out.println(payload.get("mensagem"));
-                        System.out.println("###################");
+                        if (payload.get("resultado").equals("VITORIA")) {
+                            System.out.println("\n");
+                            System.out.println("_______           -------------");
+                            System.out.println("|/   |            | Me safei! |");
+                            System.out.println("|                /_ -----------");
+                            System.out.println("|              o ");
+                            System.out.println("|             / \\/");
+                            System.out.println("|             |\\");
+                            System.out.println("|            /_/_");
+                            System.out.println("|              ");
+                        }else{
+                            System.out.println("_______");
+                            System.out.println("|/   |");
+                            System.out.println("|   \\O/");
+                            System.out.println("|    | ");
+                            System.out.println("|   / \\");
+                            System.out.println("|   | |");
+                            System.out.println("|");
+                        }
+                        System.out.println("#############################");
+
                     } else {
                         // Para broadcasts genéricos (como entrada/saída de jogadores)
                         System.out.println(payload.get("mensagem"));

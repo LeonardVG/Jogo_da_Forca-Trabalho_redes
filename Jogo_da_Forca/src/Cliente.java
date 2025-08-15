@@ -14,7 +14,8 @@ public class Cliente {
     private static final Gson gson = new Gson();
 
     public static void main(String[] args) {
-        String ipServidor = "127.0.0.1";
+        //String ipServidor = "127.0.0.1";
+        String ipServidor = "192.168.191.142";
         int porta = 6789;
 
         try {
