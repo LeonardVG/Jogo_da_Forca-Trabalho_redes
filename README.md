@@ -1,15 +1,13 @@
 # Jogo da Forca Multiplayer em Java
 
-[cite_start]Este projeto é a implementação de um Jogo da Forca multiplayer cooperativo, desenvolvido como trabalho prático final para a disciplina de Redes de Computadores. [cite: 2]
+Este projeto é a implementação de um Jogo da Forca multiplayer cooperativo, desenvolvido como trabalho prático final para a disciplina de Redes de Computadores.
 
 A aplicação utiliza uma arquitetura Cliente-Servidor sobre sockets TCP, permitindo que múltiplos jogadores se conectem em salas, interajam e colaborem em tempo real para adivinhar uma palavra secreta gerenciada pelo servidor. A comunicação é realizada através de um protocolo de aplicação customizado com mensagens no formato JSON.
 
 ## Autores
 
-* [cite_start]Luciani Queiroz [cite: 41]
-* [cite_start]Leonardo Vieira [cite: 41]
-
-*(Grupo 13)*
+* [@LeonardVG](https://github.com/LeonardVG)
+* [@aquinoluci](https://github.com/aquinoluci) 
 
 ## Disciplina
 
